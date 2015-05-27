@@ -70,9 +70,9 @@ SplashScreenApp.prototype.start = function()
  * */
 SplashScreenApp.prototype.show_ = function()
 {
-	var textRect = {x:320, y:60};
+	var textRect = {x:420, y:70};
 	var back = new createjs.Shape();
-	back.graphics.beginFill('rgba(255,255,255,1)').drawRoundRect(SplashScreenApp.TEXT_X, SplashScreenApp.TEXT_Y, textRect.x, textRect.y, 10);
+	back.graphics.beginFill('rgba(255,255,255,1)').drawRect(SplashScreenApp.TEXT_X-5, SplashScreenApp.TEXT_Y, textRect.x, textRect.y);
 	back.alpha = 0;
 	var text = new createjs.Text(SplashScreenApp.DISPLAY_TEXT, "60px Arial", "#000000");
 	text.x = SplashScreenApp.TEXT_X;
@@ -110,7 +110,7 @@ SplashScreenApp.prototype.show_ = function()
 			}while(!text.hitTest(randX, randY));
 
 			var dot = new createjs.Shape();
-			var color = 'rgba(0,0,'+(BOK.randN(100)+155)+',0.7)';
+			var color = 'rgba(237,170,0,'+(Math.random()+0.8)+')';
 			//var color = 'rgba('+BOK.randN(255)+', '+BOK.randN(255)+', '+BOK.randN(255)+', 1)';
 			dot.graphics.beginFill(color).drawCircle(0, 0, BOK.randN(2)+2);
 			dot.x = Math.random()*that.width_;

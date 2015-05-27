@@ -13,7 +13,7 @@ goog.require("org.createjs.tweenjs.TweenJS");
 
 BOK.inherits(Stretcher, createjs.Container);
 
-function Stretcher(canvasDom, defaultWidth, defaultHeight, bgColor) {
+function Stretcher(canvasDom, defaultWidth, defaultHeight, bgColor, FPSColor) {
     createjs.Container.call(this);
 
     this.dWidth_ = defaultWidth || canvasDom.width;
@@ -27,7 +27,7 @@ function Stretcher(canvasDom, defaultWidth, defaultHeight, bgColor) {
     this.base_.graphics.beginFill(bgColor || 'rgba(0, 0, 0, 1)').drawRect(0, 0, this.dWidth_, this.dHeight_);
     this.addChild(this.base_);
 
-    this.fps_ = new createjs.Text('', "25px Arial bold", "#FFFFFF");
+    this.fps_ = new createjs.Text('', "25px Arial bold", FPSColor || "#FFFFFF");
     this.stage.addChild(this.fps_);
 
     //stage setup
