@@ -1,0 +1,23 @@
+
+
+/*fonts*/
+@font-face
+{
+    font-family: "Sosa";
+    src: url('../fonts/sosa-regular-webfont.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.sosa-icon {
+    font-family: "Sosa";
+}
+
+@font-face{
+    font-family: "ArimoBold";
+    src: url('../fonts/Arimo-Bold.ttf') format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+

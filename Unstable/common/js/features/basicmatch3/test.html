@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TEST: basicmatch3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, target-densityDpi=device-dpi">
+
+    <link href='http://fonts.googleapis.com/css?family=Stalinist+One' rel='stylesheet' type='text/css'>
+
+    <link href="../../../../common/css/ui/uicommon.css" rel="stylesheet"/>
+    <link href="../../../../common/css/ui/widgetcommon.css" rel="stylesheet"/>
+
+    <!-- dummy goog object -->
+    <script type="text/javascript" src="../../../../common/js/org/goog/dummy_goog.js"></script>
+
+    <!-- 3rd party lib -->
+    <script type="text/javascript" src="../../../../common/js/org/puremvc/puremvc-1.0.js"></script>
+    <script type="text/javascript" src="../../../../common/js/org/createjs/easeljs/easeljs-0.6.1.min.js"></script>
+    <script type="text/javascript" src="../../../../common/js/org/createjs/tweenjs/tweenjs-0.4.1.min.js"></script>
+
+    <!-- lib source -->
+    <script type="text/javascript" src="../../../../common/js/BOK.js"></script>
+    <script type="text/javascript" src="../../../../common/js/event/Event.js"></script>
+    <script type="text/javascript" src="../../../../common/js/Delegate.js"></script>
+    <script type="text/javascript" src="../../../../common/js/EventDispatcher.js"></script>
+    <script type="text/javascript" src="../../../../common/js/easelui/EsButton.js"></script>
+    <script type="text/javascript" src="../../../../common/js/util/EaselAnimationHelper.js"></script>
+
+    <script type="text/javascript" src="../../../../common/js/framework/util/frameworkUtil.js"></script>
+    <script type="text/javascript" src="../../../../common/js/framework/core/BaseProxy.js"></script>
+    <script type="text/javascript" src="../../../../common/js/framework/core/BaseMediator.js"></script>
+    <script type="text/javascript" src="../../../../common/js/framework/core/BaseCommand.js"></script>
+    <script type="text/javascript" src="../../../../common/js/framework/core/FeatureNotesCollection.js"></script>
+    <script type="text/javascript" src="../../../../common/js/framework/core/MVCFeature.js"></script>
+    <script type="text/javascript" src="../../../../common/js/framework/App.js"></script>
+
+    <script type="text/javascript" src="../../../../common/js/cssStage/util/cssStageTool.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/CssDisplayObject.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/CssImage.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/CssStage.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/ui/TextPanel.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/ui/TabPanel.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/ui/CssButton.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/ui/CssPanel.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/ui/ListPanel.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/ui/Bar.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/ui/CircleMenu.js"></script>
+    <script type="text/javascript" src="../../../../common/js/cssStage/widgets/EaselStage.js"></script>
+
+    <!-- game features -->
+    <script type="text/javascript" src="BasicMatch3FeatureNotes.js"></script>
+    <script type="text/javascript" src="data/Settings.js"></script>
+    <script type="text/javascript" src="v/components/Icon.js"></script>
+    <script type="text/javascript" src="v/components/IconCounter.js"></script>
+    <script type="text/javascript" src="v/components/DashBoard.js"></script>
+    <script type="text/javascript" src="v/components/GridBoard.js"></script>
+    <script type="text/javascript" src="v/components/MainBoard.js"></script>
+    <script type="text/javascript" src="v/GameMediator.js"></script>
+    <script type="text/javascript" src="BasicMatch3Feature.js"></script>
+</head>
+
+<body style="background-color: black">
+    <div id="mainPage" style="width: 640px; height: 480px;background-color: white;"></div>
+
+
+    <!-- start-up script -->
+    <script type="text/javascript">
+        createjs.Ticker.setFPS(40);
+
+        var stage = document.createElement('div');
+        document.getElementById('mainPage').appendChild(stage);
+
+        var app = new App();
+        app.addFeature(new bok.features.basicmatch3.BasicMatch3Feature(new CssStage(stage)));
+        app.start();
+
+        //feature.newGameStart();
+        app.sendNotification(BasicMatch3FeatureNotes.getInputNoteWithFeatureName('GAME_START'));
+    </script>
+</body>
+</html>

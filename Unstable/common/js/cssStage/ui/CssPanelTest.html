@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link href="../../../css/ui/uicommon.css" rel="stylesheet"/>
+    <link href="../../../css/ui/widgetcommon.css" rel="stylesheet"/>
+    <link href="../../../css/fontscommon.css" rel="stylesheet"/>
+
+    <title></title>
+	<script type="text/javascript" >
+		var goog = {};
+		goog.provide = function(){};
+		goog.require = function(){};
+	</script>
+    <script type="text/javascript" src="../../BOK.js"></script>
+    <script type="text/javascript" src="../../Delegate.js"></script>
+    <script type="text/javascript" src="../../EventDispatcher.js"></script>
+    <script type="text/javascript" src="../../event/Event.js"></script>
+
+    <script type="text/javascript" src="../util/cssStageTool.js"></script>
+    <script type="text/javascript" src="../util/CssHelper.js"></script>
+    <script type="text/javascript" src="../CssDisplayObject.js"></script>
+    <script type="text/javascript" src="../CssStage.js"></script>
+    <script type="text/javascript" src="../ui/CssButton.js"></script>
+    <script type="text/javascript" src="../ui/CssPanel.js"></script>
+</head>
+<body>
+<div id="cssStage" style="top: 310px; left: 10px; width: 500px; height: 300px;"></div>
+
+<script type="text/javascript">
+    var cssStage = new CssStage(document.getElementById('cssStage'));
+
+    var panel = new CssPanel('panel1', 100, 400, 0, 0);
+    var panel2 = new CssPanel('panel2', 100, 400, 0, 0);
+    panel2.setX(120);
+
+    panel.showCloseButton();
+    panel2.clickable = true;
+    
+    cssStage.addChild(panel);
+    cssStage.addChild(panel2);
+
+    var b1 = new CssButton('Open P1');
+    b1.setPos(30, 410);
+    b1.addEventListener(Event.MOUSE.CLICK, function(){
+        panel.unfold()
+    });
+    var b2 = new CssButton('Open P2');
+    b2.setPos(150, 410);
+    b2.addEventListener(Event.MOUSE.CLICK, function(){
+        panel2.unfold()
+    });
+    cssStage.addChild(b1);
+    cssStage.addChild(b2);
+
+</script>
+</body>
+</html>

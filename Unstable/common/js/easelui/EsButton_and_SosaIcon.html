@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <style type="text/css">
+        /*fonts*/
+        @font-face
+        {
+            font-family: "Sosa";
+            src: url('../../fonts/sosa-regular-webfont.ttf') format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <link href="../../css/ui/uicommon.css" rel="stylesheet"/>
+    <link href="../../css/ui/widgetcommon.css" rel="stylesheet"/>
+
+    <title></title>
+	<script type="text/javascript" >
+		var goog = {};
+		goog.provide = function(){};
+		goog.require = function(){};
+	</script>
+    <script type="text/javascript" src="../BOK.js"></script>
+    <script type="text/javascript" src="../Delegate.js"></script>
+
+    <script type="text/javascript" src="../org/createjs/easeljs/easeljs-0.7.1.min.js"></script>
+    <script type="text/javascript" src="../org/createjs/easeljs/movieclip-0.7.1.min.js"></script>
+    <script type="text/javascript" src="../org/createjs/tweenjs/tweenjs-0.5.1.min.js"></script>
+
+
+
+    <script type="text/javascript" src="EsButton.js"></script>
+    <script type="text/javascript" src="SosaIcon.js"></script>
+</head>
+<body>
+<canvas id='canvas' width="1000" height="1000"></canvas>
+
+<script type="text/javascript">
+    //This part works as font preloading
+    //which is done by preloader APP
+    var d = document.createElement('div');
+    d.style.fontFamily = 'Sosa';
+    d.style.visibility = 'hidden';
+    d.innerHTML = 'a';
+    document.body.appendChild(d);
+
+    var stage = new createjs.Stage(document.getElementById('canvas'));
+    var b = new EsButton('Test Button');
+    var b2 = new EsButton('Test Custom Button', {font: "20px Arial bold",border: 4,bgColor: 'red'});
+    b2.y = 100;
+
+    stage.addChild(b);
+    stage.addChild(b2);
+
+
+
+    setTimeout(function(){
+        var b3 = new EsButton('~ > H', {font: "30px Sosa",    border: 2, enableShadow: false});
+        b3.y = 200;
+        stage.addChild(b3);
+
+        var iXBase = 300;
+        var xGap = 90;
+        var ib = new SosaIcon('>',80);
+        ib.x = iXBase += xGap;
+        var i0 = new SosaIcon(SosaIcon.ICON.MAN, 30);
+        i0.x = iXBase += xGap;
+        var i1 = new SosaIcon(SosaIcon.ICON.MAN2, 30);
+        i1.x = iXBase += xGap;
+        var i2 = new SosaIcon(SosaIcon.ICON.MAN3, 30);
+        i2.x = iXBase += xGap;
+        var i3 = new SosaIcon('4', 20);
+        i3.x = iXBase += xGap;
+        var i4 = new SosaIcon('5', 10);
+        i4.x = iXBase += xGap;
+        stage.addChild(ib);
+        stage.addChild(i0);
+        stage.addChild(i1);
+        stage.addChild(i2);
+        stage.addChild(i3);
+        stage.addChild(i4);
+
+        document.body.removeChild(d);
+    }, 20);
+
+    createjs.Ticker.setFPS(40);
+    createjs.Ticker.addEventListener("tick", Delegate.create(stage, stage.update));
+</script>
+</body>
+</html>

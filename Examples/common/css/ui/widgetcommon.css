@@ -1,0 +1,28 @@
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Administrator
+ * Date: 12-11-4
+ * Time: 下午8:19
+ */
+
+/****************************************************************/
+/** FlipBook */
+div.book3DBase {
+    -webkit-perspective: 1100px;
+    -webkit-perspective-origin-x: 50%;
+    -webkit-perspective-origin-y: 50%;
+}
+
+div.page3DBase {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 700ms;
+    -webkit-transition-timing-function: ease;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin-x: 0%;
+    -webkit-transform-origin-y: 50%;
+}
+
+div.pageFliped {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotateY(-100deg);
+}

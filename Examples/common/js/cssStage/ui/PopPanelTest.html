@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link href="../../../css/ui/uicommon.css" rel="stylesheet"/>
+    <link href="../../../css/ui/widgetcommon.css" rel="stylesheet"/>
+    <link href="../../../css/fontscommon.css" rel="stylesheet"/>
+
+    <title></title>
+	<script type="text/javascript" >
+		var goog = {};
+		goog.provide = function(){};
+		goog.require = function(){};
+	</script>
+    <script type="text/javascript" src="../../BOK.js"></script>
+    <script type="text/javascript" src="../../Delegate.js"></script>
+    <script type="text/javascript" src="../../EventDispatcher.js"></script>
+    <script type="text/javascript" src="../../event/Event.js"></script>
+
+    <script type="text/javascript" src="../util/cssStageTool.js"></script>
+    <script type="text/javascript" src="../util/CssHelper.js"></script>
+    <script type="text/javascript" src="../CssDisplayObject.js"></script>
+    <script type="text/javascript" src="../CssStage.js"></script>
+    <script type="text/javascript" src="../ui/CssButton.js"></script>
+    <script type="text/javascript" src="../ui/CssPanel.js"></script>
+    <script type="text/javascript" src="../ui/PopPanel.js"></script>
+</head>
+<body>
+<div id="cssStage" style="top: 10px; left: 10px; width: 500px; height: 480px; overflow: hidden; position: absolute;"></div>
+
+<script type="text/javascript">
+    var cssStage = new CssStage(document.getElementById('cssStage'));
+
+    var panel = new PopPanel('panel1', 100, 400);
+    cssStage.addChild(panel);
+
+</script>
+</body>
+</html>
