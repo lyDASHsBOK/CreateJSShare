@@ -33,8 +33,7 @@ Boy.prototype.turn = function(){
 
 Boy.prototype.move = function(){
     this.run();
-
-    var theSprite = this.sprite;
+    
     var self = this;
     (function animateFunc() {
         createjs.Tween.get(self.sprite).

@@ -40,13 +40,18 @@ house.y = 100;
 //rotate
 //house.rotation = 90;
 
+//shadow filter
+house.shadow = new createjs.Shadow('#000000', -5,5,5);
+
 //container
 var group = new createjs.Container();
 group.addChild(shape);
 group.addChild(house);
-group.set({x:150, y: 250});
-group.set({scaleX:0.5, scaleY: 0.5});
 stage.addChild(group);
+
+group.set({x:150, y: 250});
+
+group.set({scaleX:0.5, scaleY: 0.5});
 
 
 //Tween animation
@@ -61,7 +66,11 @@ function animateSomething(obj){
 
     animateFunc();
 }
+
 animateSomething(shape);
+
+shape.set({scaleX: 2, scaleY:2});
+
 createjs.Ticker.setFPS(60);
 
 //sprite
@@ -73,10 +82,16 @@ var sheet = new createjs.SpriteSheet({
 });
 var boy = new createjs.Sprite(sheet, 'run');
 stage.addChild(boy);
-//animateSomething(boy);
+
 
 //class
 var aBoy = new Boy();
 stage.addChild(aBoy);
 
-aBoy.set({scaleX:0.5, scaleY:0.5, x:70, y:250});
+aBoy.x = 200;
+
+aBoy.shadow = new createjs.Shadow('#000000', -5,5,5);
+
+group.addChild(aBoy);
+
+
